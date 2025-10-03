@@ -1,1 +1,0 @@
-# EndijsKirsteins234924.github.io
