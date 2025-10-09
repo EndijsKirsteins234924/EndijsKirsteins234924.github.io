@@ -9,15 +9,15 @@ import Autoplay from "embla-carousel-autoplay";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration and admin dashboard",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=500&fit=crop",
+      title: "Sustainable Development Goals (SDGs) Exploration",
+      description: "Data exploration and visualization on SDG indicators to bring awareness",
+      tags: ["Power BI", "DAX", "Analytics"],
+      image: "src/assets/SDG-corr-ratio.png",
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task manager with real-time updates and team features",
-      tags: ["React", "Firebase", "Tailwind CSS"],
+      title: "NAC Breda Player Suggestion Solution",
+      description: "Written report on player suggestions for NAC Breda football club",
+      tags: ["Python", "Scikit-learn", "Analytics"],
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop",
     },
     {
