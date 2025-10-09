@@ -1,4 +1,4 @@
-import { Code2, Palette, Zap } from "lucide-react";
+import { Code2, Palette, BrainCircuit } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
@@ -14,9 +14,9 @@ const About = () => {
       description: "Creating beautiful, intuitive interfaces that users love",
     },
     {
-      icon: Zap,
-      title: "Performance",
-      description: "Optimizing applications for speed and user experience",
+      icon: BrainCircuit,
+      title: "AI & Data Science Solutions",
+      description: "Leveraging AI and data science to drive business insights and innovation",
     },
   ];
 
