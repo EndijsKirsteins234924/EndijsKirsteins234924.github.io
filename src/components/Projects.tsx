@@ -1,45 +1,14 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
+import { projectsArray } from "@/data/projectsData"; // Import here
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Sustainable Development Goals (SDGs) Exploration",
-      description: "Data exploration and visualization on SDG indicators to bring awareness",
-      tags: ["Power BI", "DAX", "Analytics"],
-      image: "src/assets/SDG-corr-ratio.png",
-    },
-    {
-      title: "NAC Breda Player Suggestion Solution",
-      description: "Written report on player suggestions for NAC Breda football club",
-      tags: ["Python", "Scikit-learn", "Analytics"],
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop",
-    },
-    {
-      title: "Portfolio CMS",
-      description: "Content management system for creative professionals with portfolio showcase",
-      tags: ["Next.js", "TypeScript", "PostgreSQL"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    },
-    {
-      title: "Mobile App Development",
-      description: "Cross-platform mobile application with offline support and push notifications",
-      tags: ["React Native", "Redux", "Firebase"],
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop",
-    },
-    {
-      title: "AI-Powered Analytics",
-      description: "Machine learning dashboard for real-time data insights and predictions",
-      tags: ["Python", "TensorFlow", "React"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-    },
-  ];
-
   const plugin = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
@@ -65,7 +34,7 @@ const Projects = () => {
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className="-ml-4">
-            {projects.map((project, index) => (
+            {projectsArray.map((project, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <Card className="bg-card border-border overflow-hidden card-hover group h-full">
                   <div className="relative overflow-hidden h-48">
@@ -89,14 +58,12 @@ const Projects = () => {
                       ))}
                     </div>
                     <div className="flex gap-3">
-                      <Button variant="outline" size="sm" className="flex-1">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                      <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live
-                      </Button>
+                      <Link to={`/projects/${project.id}`}>
+                        <Button variant="outline" size="sm">
+                          <ArrowRight className="w-4 h-4 mr-2" />
+                          View Details
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
