@@ -1,13 +1,11 @@
-import { Mail, Linkedin, Github, Twitter } from "lucide-react";
+import { Mail, Linkedin, Github, } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Contact = () => {
   const socialLinks = [
-    { icon: Mail, label: "Email", href: "mailto:your.email@example.com", color: "text-red-400" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com", color: "text-blue-400" },
-    { icon: Github, label: "GitHub", href: "https://github.com", color: "text-purple-400" },
-    { icon: Twitter, label: "Twitter", href: "https://twitter.com", color: "text-cyan-400" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/endijs-kirsteins-6457b3291/", color: "text-blue-400" },
+    { icon: Github, label: "GitHub", href: "https://github.com/EndijsKirsteins234924", color: "text-purple-400" },
   ];
 
   return (
@@ -32,7 +30,7 @@ const Contact = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 shadow-lg"
                 asChild
               >
-                <a href="mailto:your.email@example.com">Send Me an Email</a>
+                <a href="mailto:234924@buas.nl">Send Me an Email</a>
               </Button>
             </div>
 

@@ -6,6 +6,58 @@ import { ArrowLeft } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { projectsData } from "@/data/projectsData";
 
+// Helper functions to format the text with headers and paragraphs
+const formatText = (text: string) => {
+    // Split by ** markers to identify sections
+    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+
+    return parts.map((part, index) => {
+        // If it's a header (wrapped in **)
+        if (part.startsWith('**') && part.endsWith('**')) {
+            const headerText = part.slice(2, -2); // Remove **
+            return (
+                <h3 key={index} className="text-xl font-semibold text-primary mt-6 mb-3">
+                    {headerText}
+                </h3>
+            );
+        }
+        // Regular text
+        if (part.trim()) {
+            return (
+                <p key={index} className="mb-4 leading-relaxed">
+                    {part.trim()}
+                </p>
+            );
+        }
+        return null;
+    });
+};
+
+const formatNarrativeText = (text: string) => {
+    // Split by double newlines to get paragraphs and sections
+    const blocks = text.split(/\n\n+/);
+
+    return blocks.map((block, index) => {
+        const trimmed = block.trim();
+
+        // Check if it's a header (short line, possibly title case, no period at end)
+        if (trimmed.length < 80 && !trimmed.endsWith('.') && !trimmed.endsWith(',')) {
+            return (
+                <h3 key={index} className="text-2xl font-semibold text-primary mt-8 mb-4 first:mt-0">
+                    {trimmed}
+                </h3>
+            );
+        }
+
+        // Regular paragraph
+        return (
+            <p key={index} className="mb-4 leading-relaxed text-foreground/90">
+                {trimmed}
+            </p>
+        );
+    });
+};
+
 const ProjectPages = () => {
     const { projectId } = useParams();
 
@@ -90,11 +142,33 @@ const ProjectPages = () => {
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-lg text-foreground/80 leading-relaxed">
-                                {project.fullDescription}
-                            </p>
+                            {formatNarrativeText(project.fullDescription)}
                         </CardContent>
                     </Card>
+
+                    {project.embedUrl && (
+                        <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
+                            <CardHeader>
+                                <CardTitle className="text-3xl">
+                                    <span className="text-gradient">Interactive Dashboard</span>
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="w-full aspect-video rounded-lg overflow-hidden bg-background/50">
+                                    <iframe
+                                        title="Power BI Dashboard"
+                                        src={project.embedUrl}
+                                        frameBorder="0"
+                                        allowFullScreen
+                                        className="w-full h-full"
+                                    />
+                                </div>
+                                <p className="mt-4 text-sm text-muted-foreground italic">
+                                    💡 Interact with the dashboard above - use filters, click on visualizations, and explore the data across different pages.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    )}
 
                     {project.technologies && (
                         <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
@@ -124,7 +198,7 @@ const ProjectPages = () => {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-lg text-foreground/80 leading-relaxed">
-                                    {project.challenges}
+                                    {formatText(project.challenges)}
                                 </p>
                             </CardContent>
                         </Card>
@@ -139,7 +213,7 @@ const ProjectPages = () => {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-lg text-foreground/80 leading-relaxed">
-                                    {project.solutions}
+                                    {formatText(project.solutions)}
                                 </p>
                             </CardContent>
                         </Card>
@@ -154,7 +228,7 @@ const ProjectPages = () => {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-lg text-foreground/80 leading-relaxed">
-                                    {project.results}
+                                    {formatText(project.results)}
                                 </p>
                             </CardContent>
                         </Card>
