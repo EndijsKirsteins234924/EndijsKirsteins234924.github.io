@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
-import { projectsArray } from "@/data/projectsData"; // Import here
+import { projectsArray } from "@/data/projectsData";
 
 const Projects = () => {
   const plugin = useRef(

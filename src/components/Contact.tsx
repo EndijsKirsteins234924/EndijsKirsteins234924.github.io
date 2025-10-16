@@ -62,7 +62,7 @@ const Contact = () => {
         </Card>
 
         <footer className="mt-16 text-center text-muted-foreground">
-          <p>© 2024 Your Name. Built with React & TypeScript</p>
+          <p>© 2025 Endijs Kirsteins. Built with React & TypeScript</p>
         </footer>
       </div>
     </section>
