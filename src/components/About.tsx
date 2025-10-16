@@ -27,19 +27,22 @@ const About = () => {
           About <span className="text-gradient">Me</span>
         </h2>
         <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-          Passionate developer with expertise in building modern web applications
+          Data Science & AI student at Breda University specializing in machine learning,
+          computer vision, and analytics solutions that solve real-world problems.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6 animate-fade-in">
             <p className="text-lg leading-relaxed">
-              I'm a full-stack developer with a keen eye for design and a passion for creating
-              seamless user experiences. With several years of experience in web development,
-              I specialize in React, TypeScript, and modern web technologies.
+              I take pride in taking projects from research prototype to deployed solution - whether
+              it's automated robotics for plant research or player recruitment analytics for
+              professional football clubs.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              When I'm not coding, you can find me exploring new technologies, contributing to
-              open-source projects, or sharing knowledge with the developer community.
+              When I'm not working on academic projects, I explore passion projects like leveraging
+              game data for AI-powered coaching systems or building apps to optimize fitness routines. Whether
+              it's explainable food classification models or interactive SDG dashboards, I believe the
+              best technology is the kind that empowers decision-makers with clarity.
             </p>
           </div>
 

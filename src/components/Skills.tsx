@@ -4,16 +4,58 @@ import { Card, CardContent } from "@/components/ui/card";
 const Skills = () => {
   const skillCategories = [
     {
-      category: "Frontend",
-      skills: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vue.js", "HTML5", "CSS3"],
+      category: "Machine Learning & AI",
+      skills: [
+        "Python",
+        "TensorFlow",
+        "PyTorch",
+        "Scikit-learn",
+        "Computer Vision",
+        "NLP",
+        "Deep Learning",
+        "Transfer Learning",
+        "Reinforcement Learning",
+        "U-Net",
+        "RoBERTa",
+        "Grad-CAM",
+        "SHAP",
+      ],
     },
     {
-      category: "Backend",
-      skills: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"],
+      category: "Data & Analytics",
+      skills: [
+        "Power BI",
+        "DAX",
+        "Pandas",
+        "NumPy",
+        "MySQL",
+        "PostgreSQL",
+        "Statistical Analysis",
+        "ETL",
+        "Data Visualization",
+        "CRISP-DM",
+        "Exploratory Data Analysis",
+        "Business Intelligence",
+      ],
     },
     {
-      category: "Tools & Others",
-      skills: ["Git", "Docker", "AWS", "Figma", "Jest", "CI/CD", "Agile"],
+      category: "Development & Deployment",
+      skills: [
+        "Azure",
+        "FastAPI",
+        "Docker",
+        "CI/CD",
+        "Git/GitHub",
+        "Poetry",
+        "pytest",
+        "REST APIs",
+        "Streamlit",
+        "Arduino",
+        "Robotics",
+        "React",
+        "TypeScript",
+        "Blender",
+      ],
     },
   ];
 
@@ -24,7 +66,7 @@ const Skills = () => {
           Skills & <span className="text-gradient">Technologies</span>
         </h2>
         <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-          Technologies and tools I work with on a regular basis
+          Technologies and tools I use to build machine learning systems and data-driven solutions
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -34,13 +76,15 @@ const Skills = () => {
               className="bg-card border-border card-hover"
             >
               <CardContent className="p-6">
-                <h3 className="text-2xl font-semibold mb-6 text-primary">{category.category}</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-primary">
+                  {category.category}
+                </h3>
                 <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill, skillIndex) => (
                     <Badge
                       key={skillIndex}
                       variant="secondary"
-                      className="px-4 py-2 text-sm bg-secondary hover:bg-secondary/80"
+                      className="px-4 py-2 text-sm bg-secondary hover:bg-secondary/80 transition-colors"
                     >
                       {skill}
                     </Badge>
