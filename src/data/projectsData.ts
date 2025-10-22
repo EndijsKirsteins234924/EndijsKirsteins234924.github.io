@@ -1,4 +1,11 @@
 import sdgImage1 from "../assets/sdg-im-1.jpg";
+import NACImage1 from "../assets/EmmenPosDist.jpg";
+import NACImage2 from "../assets/FeatureImportance.png";
+import NACImage3 from "../assets/NACProjModelTable.png";
+import FoodImage1 from "../assets/FoodClassMain.jpg";
+import FoodImage2 from "../assets/FoodClassDemo.jpg";
+import FoodImage3 from "../assets/FoodXAI.png";
+import FoodImage4 from "../assets/FoodClassAugm.png";
 
 export interface Project {
     id: string;
@@ -11,6 +18,7 @@ export interface Project {
     challenges: string;
     solutions: string;
     results: string;
+    additionalImages?: { src: string; alt: string; caption: string }[];
     embedUrl?: string;
 }
 
@@ -127,6 +135,42 @@ This project positioned NAC Breda as a data-driven innovator in Dutch football, 
         challenges: "Transitioning from subjective to objective evaluation, limited data transparency, incomplete player statistics, feature selection from 100+ metrics, budget constraints (200k-500k), and explaining ML methodology to non-technical management.",
         solutions: "Comprehensive EDA pipeline, standardized scoring system, strategic feature selection ('Deep Completions per 90'), systematic model selection via grid search, prediction residuals methodology, and clear visualizations for stakeholders.",
         results: "RMSE of 0.687, identified 3 candidates within budget (Weberbauer, Galchev, Siht), quantified defensive weakness (-0.093 vs +0.103), validated 'Deep Completions per 90' as key metric (6.7% importance), created reusable framework, published 14-page academic report.",
+        additionalImages: [
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            {
+                src: NACImage3,
+                alt: "Model Performance Comparison",
+                caption: "Comparison of model performances gained from GridSearchCV"
+            },
+
+            {
+                src: NACImage1,
+                alt: "Position Distribution for Emmen",
+                caption: "Position distribution for opposing team showing defensive advantage"
+            },
+
+            {
+                src: NACImage2,
+                alt: "Feature Importances (Top 5 Labeled)",
+                caption: "Deep completions per 90 identified as key metric (6.7% importance)"
+            },
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+        ]
     },
     "food-order-classification": {
         id: "food-order-classification",
@@ -140,7 +184,7 @@ Long delivery times top customer complaints at 34%, but incorrect orders come se
 
 The Vision: Order Checking Station
 
-I designed an end-to-end proof-of-concept "Order Checking Station" enabling restaurants to automatically verify orders before delivery. The system classifies food items into 5 categories: Burger with Fries, Durum Wrap, Fish and Chips, Soup, and Taco.
+I designed an end-to-end proof-of-concept "Order Checking Station". The system classifies food items into 5 categories: Burger with Fries, Durum Wrap, Fish and Chips, Soup, and Taco, in order to prove that food items can be classified by AI, and a further system can be engineered for real world use-case problems.
 
 Building the Foundation
 
@@ -154,7 +198,7 @@ After 35+ epochs with early stopping, I achieved 96.6% validation accuracy—app
 
 Making AI Explainable
 
-Restaurant staff needed to understand and trust AI decisions. I implemented Grad-CAM (Gradient-weighted Class Activation Mapping) visualizations showing which image regions influenced predictions.
+Restaurant staff needed to understand and trust AI decisions. I implemented Grad-CAM++ (Gradient-weighted Class Activation Mapping Plus Plus) and KernelShap visualizations showing which image regions influenced predictions.
 
 For example, the model correctly focused on bun structure and fries for burger identification, wrap folding patterns for durum classification, and distinctive taco shell shapes.
 
@@ -162,7 +206,7 @@ Human-Centered Design
 
 I developed an intuitive order verification interface displaying expected order items versus AI-detected items side-by-side. Clear visual indicators (red X icon, order numbers) communicated mismatches instantly.
 
-Think-aloud usability studies with restaurant staff validated the interface. Staff successfully interpreted displays and expressed confidence in the system's reliability for catching genuine errors.
+Think-aloud usability studies with course mates validated the interface. Participants successfully interpreted displays and expressed confidence in the system's reliability for catching genuine errors.
 
 Real-World Performance
 
@@ -174,17 +218,56 @@ Business Impact
 
 The DAPS framework demonstrated clear ROI: reducing incorrect orders improves customer satisfaction, decreases refund costs, enhances restaurant reputation, and strengthens delivery platform partnerships.
 
-Transfer learning efficiency meant requiring only 50 images per class instead of thousands, enabling rapid deployment to new restaurants without extensive data collection.
-
-Future Directions
-
-The scalable foundation is ready for expansion to 20+ menu items, multi-item order verification, and cross-restaurant deployment with restaurant-specific fine-tuning.`,
+Transfer learning efficiency meant requiring only 50 images per class instead of thousands, enabling rapid deployment to new restaurants without extensive data collection.`,
         tags: ["Python", "Deep Learning", "Computer Vision", "Transfer Learning", "CNN"],
-        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=500&fit=crop",
+        image: FoodImage1,
         technologies: ["Python", "TensorFlow", "Keras", "MobileNetV2", "Grad-CAM", "Transfer Learning", "Data Augmentation", "Usability Testing"],
         challenges: "Limited training data (50 images/category), visual similarity between categories, initial CNN overfitting, real-world lighting/angle variations, model interpretability for staff, real-time performance requirements, and user interface design.",
-        solutions: "Transfer learning with MobileNetV2, extensive data augmentation, 35+ epochs with early stopping, Grad-CAM explainability visualizations, human-centered interface design, think-aloud usability studies, and DAPS framework for business value.",
+        solutions: "Transfer learning with MobileNetV2, extensive data augmentation, 35+ epochs with early stopping, XAI visualizations, human-centered interface design, think-aloud usability studies, and DAPS framework for business value.",
         results: "96.6% validation accuracy (approaching 97.8% HLP), strong per-class performance, healthy convergence without overfitting, successful usability validation, clear business case with ROI path, scalable architecture for 20+ items, demonstrated 50-image efficiency.",
+        additionalImages: [
+            // Hero image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Overview image
+            {
+                src: FoodImage4,
+                alt: "Data Augmentation Examples",
+                caption: "Examples of data augmentation techniques applied to training images"
+            },
+
+            // Technologies used
+            {
+                src: FoodImage3,
+                alt: "Technologies Used",
+                caption: "Example of XAI visualization using KernelShap and Grad-CAM++ to highlight image regions influencing model predictions"
+            },
+
+            // Challenges image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Solutions image
+            {
+                src: FoodImage2,
+                alt: "Order Checking Station Interface",
+                caption: "Figma DEMO of the Order Checking Station interface for restaurant staff"
+            },
+
+            // Results image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+        ]
     },
     "incident-severity-analysis": {
         id: "incident-severity-analysis",
@@ -243,6 +326,49 @@ This system provides valuable insights for improving road safety in Breda. By pr
         challenges: "Severe class imbalance (2-25 samples for rare classes), poor initial recall/F1-scores, 0.00 precision on some categories, maintaining consistent performance across severity levels, and dataset size constraints.",
         solutions: "Multi-iteration approach, balanced class weights, severity binning, custom class weights per category, GridSearchCV hyperparameter optimization, comprehensive preprocessing (outliers, encoding, standardization), and strategic train-test splitting.",
         results: "99% overall accuracy, perfect F1-scores (1.00) for HC1 and SP1, strong performance on HB1 (0.96) and HA1 (0.94), deployed functional web application, EU AI Act compliance, actionable safety recommendations.",
+        additionalImages: [
+            // Hero image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Overview image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Technologies used
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Challenges image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Solutions image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Results image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+        ]
     },
     "ai-adoption-sme": {
         id: "ai-adoption-sme",
@@ -311,6 +437,49 @@ The research provides evidence-based guidance for SMEs seeking to improve employ
         challenges: "Small sample size (6 participants), language barriers (Latvian translation), geographic data skew (South Africa), potential subjective bias, capturing nuanced perceptions across diverse industries, and bridging gap between AI potential and employee understanding.",
         solutions: "Mixed-methods approach (interviews + surveys), rigorous thematic analysis (open/axial/selective coding), peer debriefing with Ron Lev Tabuchov, data reduction techniques, triangulation for validity, correlation analysis, and visualization support.",
         results: "Published peer-reviewed paper (DOI: 10.5281/zenodo.14001094), identified 4 key themes, discovered concern-curiosity coexistence, revealed management-employee dual barrier, found preference for flexible online learning, provided actionable SME recommendations.",
+        additionalImages: [
+            // Hero image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Overview image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Technologies used
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Challenges image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Solutions image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Results image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+        ]
     },
     "plant-phenotyping-robotics": {
         id: "plant-phenotyping-robotics",
@@ -365,6 +534,49 @@ This project deepened my appreciation of how advanced technology can propel plan
         challenges: "Root segmentation accuracy (initial F1: 0.757), incomplete main root paths, lateral root interference, generalizability across growth stages, RL controller speed (83 vs 31 steps), reliability issues (75% vs 95%), and coordinate transformation.",
         solutions: "Iterative U-Net improvements (F1: 0.757 → 0.874), advanced skeleton path generation, landmark detection, PyBullet simulation, dual control systems (PID + RL), Gymnasium framework integration, and coordinate transformation formulas.",
         results: "1mm precision accuracy, F1 score of 0.874, 100% positional accuracy (RL), ~95% inoculation success (PID), 26% sMAPE (Kaggle), complete automated pipeline, scalable foundation for 10,000+ seedlings, supports NPEC food security research.",
+        additionalImages: [
+            // Hero image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Overview image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Technologies used
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Challenges image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Solutions image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Results image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+        ]
     },
     "b2-spirit-imu-simulation": {
         id: "b2-spirit-imu-simulation",
@@ -425,6 +637,49 @@ The experience demonstrated practical applications for interactive simulations i
         challenges: "Translating sensor output to Blender coordinates, establishing stable serial communication, debugging PySerial (COM port, baud rate, data format), bone rotation complexity, quaternion mathematics, joystick calibration, DIY hardware limitations, real-time latency, team coordination, 2-week timeline.",
         solutions: "I2C sensor integration, sensor calibration routines, three-stage data pipeline, coordinate transformation logic, sophisticated rigging (MAIN + FLAP bones), quaternion interpolation, professional 3D modeling workflow (Blender + Substance Painter), systematic testing, team specialization.",
         results: "Real-time responsiveness with minimal latency, professional B2 Spirit model with detailed texturing, functional rigging (3-axis control + inverse flaps + landing gear), stable PySerial communication, comprehensive documentation, demo videos, 4 team member reflections, 2-week completion.",
+        additionalImages: [
+            // Hero image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Overview image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Technologies used
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Challenges image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Solutions image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Results image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+        ]
     },
     "emotion-classification-nlp": {
         id: "emotion-classification-nlp",
@@ -497,6 +752,49 @@ I identified clear next steps: API wrapping for easy integration, language detec
         challenges: "Severe class imbalance (12k neutral, 10k happiness vs <1k anger/fear/disgust), text length degradation (74% → 54% accuracy), context-dependent sarcasm, domain shift with spontaneous speech, 30,524 samples across 7 emotions, transcript quality, sentence segmentation.",
         solutions: "Hybrid architecture (RoBERTa-Large + sentiment + emotion counts), transfer learning from massive corpora, comprehensive preprocessing pipeline, PyTorch efficient batching, A100 GPU training with early stopping, SHAP explainability, external dataset testing (GoEmotions, MELD, dutch datasets).",
         results: "71% overall accuracy, 0.72 F1-score, happiness (0.78) and neutral (0.73) excelled, sadness (0.59) and surprise (0.50) strong, <40s pipeline processing, 84% on dutch_g23, ~76% correct on Fox News video, clear length-accuracy patterns identified.",
+        additionalImages: [
+            // Hero image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Overview image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Technologies used
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Challenges image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Solutions image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Results image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+        ]
     },
     "axonrooter-mlops-deployment": {
         id: "axonrooter-mlops-deployment",
@@ -573,6 +871,49 @@ NPEC now processes thousands of plant images with a system that continuously imp
         challenges: "Transforming research code to production, automated retraining pipeline design, model versioning without downtime, robust API error handling (422/500 codes), comprehensive logging without overwhelming operators, package distribution for reproducibility, Azure deployment complexity, 24/7 reliability requirements.",
         solutions: "Modular package structure (preprocessing/inference/API/CLI/utils), automated pipeline (monitor → trigger → validate → deploy), FastAPI REST API (/predict/ endpoint, JSON responses, 200/422/500 codes), configurable logging (DEBUG/INFO/WARNING/ERROR/CRITICAL, dual output), Poetry dependency management, Sphinx documentation on GitHub Pages, pytest test suite, Azure App Service deployment.",
         results: "High DevOps maturity, pip-installable package (axonrooter-0.1.0.whl), <40s API processing, automated retraining without downtime, configurable logging enabling rapid debugging, professional documentation site, Azure 24/7 operation, CLI for power users, comprehensive pytest coverage, processes thousands of images with continuous improvement.",
+        additionalImages: [
+            // Hero image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Overview image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Technologies used
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Challenges image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Solutions image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+
+            // Results image
+            {
+                src: "",
+                alt: "",
+                caption: ""
+            },
+        ]
     },
 };
 

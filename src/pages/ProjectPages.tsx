@@ -60,8 +60,12 @@ const formatNarrativeText = (text: string) => {
 
 const ProjectPages = () => {
     const { projectId } = useParams();
-
     const project = projectsData[projectId as string];
+
+    // Helper to get image by index
+    const getImage = (index: number) => {
+        return project.additionalImages?.[index];
+    };
 
     if (!project) {
         return (
@@ -99,13 +103,10 @@ const ProjectPages = () => {
                 backgroundAttachment: "fixed",
             }}
         >
-            {/* Header with back button */}
             <div className="container mx-auto max-w-7xl px-6 lg:px-24 py-12">
+                {/* Back button */}
                 <Link to="/">
-                    <Button
-                        variant="outline"
-                        className="mb-12 border-primary text-primary hover:bg-primary/10 font-semibold"
-                    >
+                    <Button variant="outline" className="mb-12 border-primary text-primary hover:bg-primary/10 font-semibold">
                         <ArrowLeft className="mr-2 h-4 w-4" />
                         Back to Home
                     </Button>
@@ -133,8 +134,25 @@ const ProjectPages = () => {
                     </div>
                 </div>
 
+                {/* Image 1: After Hero */}
+                {getImage(0) && (
+                    <div className="mb-12 animate-fade-in">
+                        <img
+                            src={getImage(0).src}
+                            alt={getImage(0).alt}
+                            className="w-full rounded-lg shadow-lg hover:shadow-glow transition-all duration-300"
+                        />
+                        {getImage(0).caption && (
+                            <p className="mt-3 text-sm text-muted-foreground italic text-center">
+                                {getImage(0).caption}
+                            </p>
+                        )}
+                    </div>
+                )}
+
                 {/* Project Details */}
                 <div className="space-y-12">
+                    {/* Overview */}
                     <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
                         <CardHeader>
                             <CardTitle className="text-3xl">
@@ -146,6 +164,23 @@ const ProjectPages = () => {
                         </CardContent>
                     </Card>
 
+                    {/* Image 2: After Overview */}
+                    {getImage(1) && (
+                        <div className="animate-fade-in">
+                            <img
+                                src={getImage(1).src}
+                                alt={getImage(1).alt}
+                                className="w-full rounded-lg shadow-lg hover:shadow-glow transition-all duration-300"
+                            />
+                            {getImage(1).caption && (
+                                <p className="mt-3 text-sm text-muted-foreground italic text-center">
+                                    {getImage(1).caption}
+                                </p>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Embed URL */}
                     {project.embedUrl && (
                         <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
                             <CardHeader>
@@ -164,12 +199,13 @@ const ProjectPages = () => {
                                     />
                                 </div>
                                 <p className="mt-4 text-sm text-muted-foreground italic">
-                                    💡 Interact with the dashboard above - use filters, click on visualizations, and explore the data across different pages.
+                                    Interact with the dashboard above - use filters, click on visualizations, and explore the data across different pages.
                                 </p>
                             </CardContent>
                         </Card>
                     )}
 
+                    {/* Technologies */}
                     {project.technologies && (
                         <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
                             <CardHeader>
@@ -189,6 +225,23 @@ const ProjectPages = () => {
                         </Card>
                     )}
 
+                    {/* Image 3: After Technologies */}
+                    {getImage(2) && (
+                        <div className="animate-fade-in">
+                            <img
+                                src={getImage(2).src}
+                                alt={getImage(2).alt}
+                                className="w-full rounded-lg shadow-lg hover:shadow-glow transition-all duration-300"
+                            />
+                            {getImage(2).caption && (
+                                <p className="mt-3 text-sm text-muted-foreground italic text-center">
+                                    {getImage(2).caption}
+                                </p>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Challenges */}
                     {project.challenges && (
                         <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
                             <CardHeader>
@@ -204,6 +257,23 @@ const ProjectPages = () => {
                         </Card>
                     )}
 
+                    {/* Image 4: After Challenges */}
+                    {getImage(3) && (
+                        <div className="animate-fade-in">
+                            <img
+                                src={getImage(3).src}
+                                alt={getImage(3).alt}
+                                className="w-full rounded-lg shadow-lg hover:shadow-glow transition-all duration-300"
+                            />
+                            {getImage(3).caption && (
+                                <p className="mt-3 text-sm text-muted-foreground italic text-center">
+                                    {getImage(3).caption}
+                                </p>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Solutions */}
                     {project.solutions && (
                         <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
                             <CardHeader>
@@ -219,6 +289,23 @@ const ProjectPages = () => {
                         </Card>
                     )}
 
+                    {/* Image 5: After Solutions */}
+                    {getImage(4) && (
+                        <div className="animate-fade-in">
+                            <img
+                                src={getImage(4).src}
+                                alt={getImage(4).alt}
+                                className="w-full rounded-lg shadow-lg hover:shadow-glow transition-all duration-300"
+                            />
+                            {getImage(4).caption && (
+                                <p className="mt-3 text-sm text-muted-foreground italic text-center">
+                                    {getImage(4).caption}
+                                </p>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Results */}
                     {project.results && (
                         <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
                             <CardHeader>
@@ -232,6 +319,22 @@ const ProjectPages = () => {
                                 </p>
                             </CardContent>
                         </Card>
+                    )}
+
+                    {/* Image 6: After Results */}
+                    {getImage(5) && (
+                        <div className="animate-fade-in">
+                            <img
+                                src={getImage(5).src}
+                                alt={getImage(5).alt}
+                                className="w-full rounded-lg shadow-lg hover:shadow-glow transition-all duration-300"
+                            />
+                            {getImage(5).caption && (
+                                <p className="mt-3 text-sm text-muted-foreground italic text-center">
+                                    {getImage(5).caption}
+                                </p>
+                            )}
+                        </div>
                     )}
                 </div>
 
