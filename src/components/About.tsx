@@ -2,6 +2,25 @@ import { Code2, Palette, BrainCircuit } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import profileImage from "@/assets/Profile.jpg";
+import { useState, useEffect } from 'react';
+
+// hook to detect if the device is mobile
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is Tailwind's md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return isMobile;
+};
 
 const About = () => {
   const features = [
@@ -30,6 +49,8 @@ const About = () => {
     "PREDICTIVE",
     "EXPLAINABLE",
   ];
+
+  const isMobile = useIsMobile();
 
   return (
     <>
@@ -109,7 +130,7 @@ const About = () => {
               x: ["0%", "-50%"],
             }}
             transition={{
-              duration: 25,
+              duration: isMobile ? 10 : 25, // 10 for mobile, 25 for desktop
               repeat: Infinity,
               ease: "linear",
             }}
