@@ -51,10 +51,12 @@ const Hero = () => {
         </div>
       </div>
 
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
+
       <button
-        onClick={() => scrollToSection("about")}
+        onClick={() => scrollToSection("projects")}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
-        aria-label="Scroll to about section"
+        aria-label="Scroll to projects section"
       >
         <ArrowDown className="w-6 h-6 text-primary" />
       </button>
