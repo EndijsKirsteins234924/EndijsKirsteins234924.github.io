@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { projectsData } from "@/data/projectsData";
 
@@ -305,6 +305,40 @@ const ProjectPages = () => {
                         </div>
                     )}
 
+                    {/* Image Gallery Section - Plant Phenotyping specific */}
+                    {projectId === "plant-phenotyping-robotics" && getImage(0) && (
+                        <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
+                            <CardHeader>
+                                <CardTitle className="text-3xl">
+                                    <span className="text-gradient">Segmentation Steps</span>
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-8">
+                                {getImage(0) && (
+                                    <img
+                                        src={getImage(6).src}
+                                        alt={getImage(6).alt}
+                                        className="w-full rounded-lg shadow-lg"
+                                    />
+                                )}
+                                {getImage(1) && (
+                                    <img
+                                        src={getImage(7).src}
+                                        alt={getImage(7).alt}
+                                        className="w-full rounded-lg shadow-lg"
+                                    />
+                                )}
+                                {getImage(2) && (
+                                    <img
+                                        src={getImage(8).src}
+                                        alt={getImage(8).alt}
+                                        className="w-full rounded-lg shadow-lg"
+                                    />
+                                )}
+                            </CardContent>
+                        </Card>
+                    )}
+
                     {/* Results */}
                     {project.results && (
                         <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
@@ -317,6 +351,36 @@ const ProjectPages = () => {
                                 <p className="text-lg text-foreground/80 leading-relaxed">
                                     {formatText(project.results)}
                                 </p>
+                            </CardContent>
+                        </Card>
+                    )}
+
+                    {/* Research Paper Link */}
+                    {project.paperUrl && (
+                        <Card className="bg-card/50 backdrop-blur-sm border-border card-hover">
+                            <CardHeader>
+                                <CardTitle className="text-3xl">
+                                    <span className="text-gradient">Research Paper</span>
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-lg text-foreground/80 leading-relaxed mb-6">
+                                    This research has been published as a peer-reviewed paper. You can access the full publication below:
+                                </p>
+                                <a
+                                    href={project.paperUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block"
+                                >
+                                    <Button
+                                        size="lg"
+                                        className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 shadow-lg hover:shadow-glow transition-all"
+                                    >
+                                        View Full Paper
+                                        <ExternalLink className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </a>
                             </CardContent>
                         </Card>
                     )}

@@ -130,7 +130,7 @@ const About = () => {
               x: ["0%", "-50%"],
             }}
             transition={{
-              duration: isMobile ? 10 : 25, // 10 for mobile, 25 for desktop
+              duration: isMobile ? 5 : 25, // 10 for mobile, 25 for desktop
               repeat: Infinity,
               ease: "linear",
             }}
