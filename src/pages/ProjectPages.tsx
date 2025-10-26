@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -61,6 +62,11 @@ const formatNarrativeText = (text: string) => {
 const ProjectPages = () => {
     const { projectId } = useParams();
     const project = projectsData[projectId as string];
+
+    // Scroll to top on projectId change
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [projectId]);
 
     // Helper to get image by index
     const getImage = (index: number) => {
